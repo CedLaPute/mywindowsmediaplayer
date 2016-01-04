@@ -52,10 +52,24 @@ namespace MyWindowsMediaPlayer
         void    button_add_Click(object s, RoutedEventArgs e)
         {
             //boite de dialogue a rajouter
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
             if (this.typeManager == Type.AUDIO)
-                this.manager[0].Add(@"C:/Users/héhéhéhéhéhéhéhé/Music/Flatbush Zombies - Palm Trees Music Video (Prod. By The Architect).mp3");
+            {
+                dialog.FileName = "Music";
+                dialog.DefaultExt = ".mp3";
+                dialog.Filter = "MP3 file (.mp)|*.mp3";
+            }
             else if (this.typeManager == Type.VIDEO)
-                this.manager[0].Add(@"C:/Users/héhéhéhéhéhéhéhé/Videos/Faune.wmv");
+            {
+                dialog.FileName = "Videos";
+                dialog.DefaultExt = ".WMV";
+                dialog.Filter = "WMV file (.mp)|*.wmv";
+            }
+
+            Nullable<bool> res = dialog.ShowDialog();
+
+            if (res == true)
+                this.manager[0].Add(dialog.FileName);
         }
 
         void    button_back_Click(object s, RoutedEventArgs e)

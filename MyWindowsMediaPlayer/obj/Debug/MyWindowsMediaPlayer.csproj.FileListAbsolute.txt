@@ -26,3 +26,8 @@ C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindow
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.g.resources
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.Properties.Resources.resources
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csproj.GenerateResource.Cache
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.AudioVideoPlayback.dll
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.Direct3D.dll
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.dll
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.Direct3D.xml
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.xml
