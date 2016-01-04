@@ -12,3 +12,17 @@ C:\Users\héhéhéhéhéhéhéhé\Documents\MyWindowsMediaPlayer\MyWindowsMediaP
 C:\Users\héhéhéhéhéhéhéhé\Documents\MyWindowsMediaPlayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csproj.GenerateResource.Cache
 C:\Users\héhéhéhéhéhéhéhé\Documents\MyWindowsMediaPlayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.exe
 C:\Users\héhéhéhéhéhéhéhé\Documents\MyWindowsMediaPlayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.pdb
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\MyWindowsMediaPlayer.exe.config
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.exe
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.pdb
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csprojResolveAssemblyReference.cache
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MainWindow.g.cs
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\App.g.cs
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer_MarkupCompile.cache
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer_MarkupCompile.lref
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\MyWindowsMediaPlayer.exe
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\MyWindowsMediaPlayer.pdb
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MainWindow.baml
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.g.resources
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.Properties.Resources.resources
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csproj.GenerateResource.Cache

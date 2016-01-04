@@ -14,8 +14,6 @@ namespace MyWindowsMediaPlayer
         public abstract void Stop();
         public abstract void Next();
         public abstract void Prev();
-        public abstract void Repeat();
-        public abstract void Shuffle();
         public abstract ObservableCollection<Item> Datas(); 
     }
 }

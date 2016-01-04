@@ -9,8 +9,6 @@ namespace MyWindowsMediaPlayer
     {
         private bool    playing = false;
         private bool    paused = false;
-        private bool    repeat = false;
-        private bool    shuffle = false;
         private ObservableCollection<Item>      datas;
         private MediaElement                    player;
         private int     index = 0;
@@ -102,16 +100,6 @@ namespace MyWindowsMediaPlayer
             {
                 this.Play();
             }
-        }
-
-        public override void Repeat()
-        {
-            this.repeat = !this.repeat;
-        }
-
-        public override void Shuffle()
-        {
-            this.shuffle = !this.shuffle;
         }
     }
 }

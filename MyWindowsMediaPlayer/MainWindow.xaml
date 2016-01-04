@@ -40,8 +40,6 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Button x:Name="button_back" Grid.Column="0">Back</Button>
@@ -49,8 +47,6 @@
             <Button x:Name="button_play" Grid.Column="2">Play/Pause</Button>
             <Button x:Name="button_forward" Grid.Column="3">Forward</Button>
             <Button x:Name="button_add" Grid.Column="4">Add File</Button>
-            <Button x:Name="button_repeat" Grid.Column="5">Repeat</Button>
-            <Button x:Name="button_shuffle" Grid.Column="6">Shuffle</Button>
         </Grid>
 
         <ScrollViewer Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
