@@ -47,6 +47,9 @@ namespace MyWindowsMediaPlayer
 
         void    button_Picture_Click(object s, RoutedEventArgs e)
         {
+            this.manager.RemoveAt(0);
+            this.manager.Add(new ImageManager(this.player));
+            this.typeManager = Type.PICTURE;
         }
 
         void    button_add_Click(object s, RoutedEventArgs e)
@@ -64,6 +67,12 @@ namespace MyWindowsMediaPlayer
                 dialog.FileName = "Videos";
                 dialog.DefaultExt = ".WMV";
                 dialog.Filter = "WMV file (.mp)|*.wmv";
+            }
+            else if (this.typeManager == Type.PICTURE)
+            {
+                dialog.FileName = "Images";
+                dialog.DefaultExt = ".JPG";
+                dialog.Filter = "JPG file (.jp)|*.jpg";
             }
 
             Nullable<bool> res = dialog.ShowDialog();
