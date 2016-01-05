@@ -27,11 +27,14 @@ namespace MyWindowsMediaPlayer
             Playlist p = new Playlist(nameOfXmlFile);
             List<Item> items = new List<Item>();
 
-            using (StreamReader rd = new StreamReader(nameOfXmlFile))
+            if (File.Exists(nameOfXmlFile))
             {
-                items = _xs.Deserialize(rd) as List<Item>;
-                if (items.Count > 0)
-                    p.addPlaylist(items);
+                using (StreamReader rd = new StreamReader(nameOfXmlFile))
+                {
+                    items = _xs.Deserialize(rd) as List<Item>;
+                    if (items.Count > 0)
+                        p.addPlaylist(items);
+                }
             }
             return p;
         }

@@ -103,9 +103,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Resources\Audio Playlist" />
-    <None Include="Resources\Image Playlist" />
-    <None Include="Resources\Video Playlist" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
