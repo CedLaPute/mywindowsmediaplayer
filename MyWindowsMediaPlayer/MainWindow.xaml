@@ -51,28 +51,28 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="button_back" Grid.Column="0">
+            <Button x:Name="button_back" Grid.Column="0" Margin="0,35,0,-34.8">
                 <Image Source="Resources/Back.png"></Image>
             </Button>
-            <Button x:Name="button_stop" Grid.Column="1">
+            <Button x:Name="button_stop" Grid.Column="1" Margin="0,35,0,-34.8">
                 <Image Source="Resources/Stop.png"></Image>
             </Button>
-            <Button x:Name="button_play" Grid.Column="2">
+            <Button x:Name="button_play" Grid.Column="2" Margin="0,35,0,-34.8">
                 <Image Source="Resources/Play.png"></Image>
             </Button>
-            <Button x:Name="button_pause" Grid.Column="3">
+            <Button x:Name="button_pause" Grid.Column="3" Margin="0,35,0,-34.8">
                 <Image Source="Resources/Pause.png"></Image>
             </Button>
-            <Button x:Name="button_forward" Grid.Column="4">
+            <Button x:Name="button_forward" Grid.Column="4" Margin="0,35,0,-34.8">
                 <Image Source="Resources/Next.png"></Image>
             </Button>
-            <Button x:Name="button_add" Grid.Column="7">
+            <Button x:Name="button_add" Grid.Column="6" Grid.ColumnSpan="2" Margin="155.8,35,0.4,-34.8">
                 <Image Source="Resources/Add.png"></Image>
             </Button>
-            <Button x:Name="button_volume_up" Grid.Column="5">
+            <Button x:Name="button_volume_up" Grid.Column="5" Margin="0,35,0.2,-34.8">
                 <Image Source="Resources/VolumeUp.png"/>
             </Button>
-            <Button x:Name="button_volume_down" Grid.Column="6">
+            <Button x:Name="button_volume_down" Grid.Column="5" Grid.ColumnSpan="2" Margin="155,35,0.2,-34.8">
                 <Image Source="Resources/VolumeDown.png"/>
             </Button>
         </Grid>
