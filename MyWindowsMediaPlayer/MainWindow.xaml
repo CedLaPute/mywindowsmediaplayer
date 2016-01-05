@@ -69,10 +69,10 @@
             <Button x:Name="button_add" Grid.Column="6" Grid.ColumnSpan="2" Margin="155.8,35,0.4,-34.8">
                 <Image Source="Resources/Add.png"></Image>
             </Button>
-            <Button x:Name="button_volume_up" Grid.Column="5" Margin="0,35,0.2,-34.8">
+            <Button x:Name="button_volume_up" Grid.Column="5" Grid.ColumnSpan="2" Margin="155,35,0.2,-34.8">
                 <Image Source="Resources/VolumeUp.png"/>
             </Button>
-            <Button x:Name="button_volume_down" Grid.Column="5" Grid.ColumnSpan="2" Margin="155,35,0.2,-34.8">
+            <Button x:Name="button_volume_down" Grid.Column="5" Margin="0,35,0.2,-34.8">
                 <Image Source="Resources/VolumeDown.png"/>
             </Button>
         </Grid>
