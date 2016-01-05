@@ -18,6 +18,12 @@ namespace MyWindowsMediaPlayer
         public MainWindow()
         {
             InitializeComponent();
+
+            MyXmlSerializer mxs = new MyXmlSerializer();
+
+            mxs.MySerialize("../../Resources/Playlist1");
+            mxs.MySerialize("../../Resources/Playlist2");
+
             this.DataContext = this;
             this.manager.Add(new SongManager(this.player));
             this.typeManager = Type.AUDIO;

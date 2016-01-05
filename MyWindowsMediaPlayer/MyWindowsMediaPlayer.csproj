@@ -60,7 +60,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AManager.cs" />
+    <Compile Include="Playlist.cs" />
     <Compile Include="ImageManager.cs" />
+    <Compile Include="MyXmlSerializer.cs" />
     <Compile Include="VideoManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
