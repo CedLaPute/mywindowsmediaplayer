@@ -101,5 +101,10 @@ namespace MyWindowsMediaPlayer
                 this.Play();
             }
         }
+
+
+        public override void VolumeUp() {}
+
+        public override void VolumeDown() {}
     }
 }

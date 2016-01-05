@@ -29,6 +29,8 @@ namespace MyWindowsMediaPlayer
             this.button_forward.Click += new RoutedEventHandler(button_forward_Click);
             this.button_play.Click += new RoutedEventHandler(button_play_Click);
             this.button_stop.Click += new RoutedEventHandler(button_stop_Click);
+            this.button_volume_up.Click += new RoutedEventHandler(button_volume_up_Click);
+            this.button_volume_down.Click += new RoutedEventHandler(button_volume_down_Click);
         }
 
         void    button_Audio_Click(object s, RoutedEventArgs e)
@@ -100,6 +102,15 @@ namespace MyWindowsMediaPlayer
             this.manager[0].Stop();
         }
 
+        void button_volume_up_Click(object s, RoutedEventArgs e)
+        {
+            this.manager[0].VolumeUp();
+        }
+
+        void button_volume_down_Click(object s, RoutedEventArgs e)
+        {
+            this.manager[0].VolumeDown();
+        }
         public ObservableCollection<Item> Datas
         {
             get { return this.manager[0].Datas(); }
