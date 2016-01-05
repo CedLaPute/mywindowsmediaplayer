@@ -14,19 +14,22 @@ namespace MyWindowsMediaPlayer
         enum Type { AUDIO, VIDEO, PICTURE };
         private Type typeManager;
         private List<AManager> manager = new List<AManager>();
+        private List<APlaylist> defaultPlaylist = new List<APlaylist>();
+        private MyXmlSerializer xs = new MyXmlSerializer();
 
         public MainWindow()
         {
             InitializeComponent();
-
-            MyXmlSerializer mxs = new MyXmlSerializer();
-
-            mxs.MySerialize("../../Resources/Playlist1");
-            mxs.MySerialize("../../Resources/Playlist2");
-
             this.DataContext = this;
             this.manager.Add(new SongManager(this.player));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/Audio Playlist"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/Video Playlist"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/Image Playlist"));
             this.typeManager = Type.AUDIO;
+            foreach (var audio in this.defaultPlaylist[0].returnItemList())
+            {
+                this.manager[0].Add(audio.Path);
+            }
             this.Audio.Click += new RoutedEventHandler(button_Audio_Click);
             this.Video.Click += new RoutedEventHandler(button_Video_Click);
             this.Picture.Click += new RoutedEventHandler(button_Picture_Click);
@@ -44,6 +47,12 @@ namespace MyWindowsMediaPlayer
             this.manager.RemoveAt(0);
             this.manager.Add(new SongManager(this.player));
             this.typeManager = Type.AUDIO;
+            this.defaultPlaylist[1].serialize();
+            this.defaultPlaylist[2].serialize();
+            foreach (var audio in this.defaultPlaylist[0].returnItemList())
+            {
+                this.manager[0].Add(audio.Path);
+            }
         }
 
         void    button_Video_Click(object s, RoutedEventArgs e)
@@ -51,6 +60,12 @@ namespace MyWindowsMediaPlayer
             this.manager.RemoveAt(0);
             this.manager.Add(new VideoManager(this.player));
             this.typeManager = Type.VIDEO;
+            this.defaultPlaylist[0].serialize();
+            this.defaultPlaylist[2].serialize();
+            foreach (var video in this.defaultPlaylist[1].returnItemList())
+            {
+                this.manager[0].Add(video.Path);
+            }
         }
 
         void    button_Picture_Click(object s, RoutedEventArgs e)
@@ -58,6 +73,12 @@ namespace MyWindowsMediaPlayer
             this.manager.RemoveAt(0);
             this.manager.Add(new ImageManager(this.player));
             this.typeManager = Type.PICTURE;
+            this.defaultPlaylist[0].serialize();
+            this.defaultPlaylist[1].serialize();
+            foreach (var picture in this.defaultPlaylist[2].returnItemList())
+            {
+                this.manager[0].Add(picture.Path);
+            }
         }
 
         void    button_add_Click(object s, RoutedEventArgs e)
@@ -67,7 +88,7 @@ namespace MyWindowsMediaPlayer
             {
                 dialog.FileName = "Music";
                 dialog.DefaultExt = ".mp3";
-                dialog.Filter = "MP3 file (.mp3)|*.mp3";
+                dialog.Filter = "MP3|*.mp3";
             }
             else if (this.typeManager == Type.VIDEO)
             {
@@ -78,13 +99,27 @@ namespace MyWindowsMediaPlayer
             {
                 dialog.FileName = "Images";
                 dialog.DefaultExt = ".JPG";
-                dialog.Filter = "JPG file (.jpg)|*.jpg";
+                dialog.Filter = "JPG|*.jpg|PNG|*.png";
             }
 
             Nullable<bool> res = dialog.ShowDialog();
 
             if (res == true)
+            {
                 this.manager[0].Add(dialog.FileName);
+                switch (this.typeManager)
+                {
+                    case Type.AUDIO:
+                        this.defaultPlaylist[0].addItem(new Item(System.IO.Path.GetFileNameWithoutExtension(dialog.FileName), dialog.FileName));
+                        break;
+                    case Type.VIDEO:
+                        this.defaultPlaylist[1].addItem(new Item(System.IO.Path.GetFileNameWithoutExtension(dialog.FileName), dialog.FileName));
+                        break;
+                    case Type.PICTURE:
+                        this.defaultPlaylist[2].addItem(new Item(System.IO.Path.GetFileNameWithoutExtension(dialog.FileName), dialog.FileName));
+                        break;
+                }
+            }
         }
 
         void    button_back_Click(object s, RoutedEventArgs e)

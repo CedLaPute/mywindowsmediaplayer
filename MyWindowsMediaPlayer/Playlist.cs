@@ -6,20 +6,35 @@ using System.Threading.Tasks;
 
 namespace MyWindowsMediaPlayer
 {
-    class Playlist
+    public class Playlist : APlaylist
     {
         private List<Item> playlist = new List<Item>();
+        private String name;
 
-        public Playlist()
+        public Playlist(String n)
         {
-            this.playlist.Add(new Item("Test1", "Test1.2"));
-            this.playlist.Add(new Item("Test2", "Test2.2"));
-            this.playlist.Add(new Item("Test3", "Test3.2"));
-            this.playlist.Add(new Item("Test4", "Test4.2"));
-            this.playlist.Add(new Item("Test5", "Test5.2"));
+            this.name = n;
         }
 
-        public List<Item>   returnListItem()
+        public override void         addItem(Item i)
+        {
+            this.playlist.Add(i);
+        }
+
+        public override void        addPlaylist(List<Item> items)
+        {
+            this.playlist = items;
+        }
+
+        public override void         serialize()
+        {
+            MyXmlSerializer mxs = new MyXmlSerializer();
+
+            if (this.playlist.Count > 0)
+                mxs.MySerialize(this.name, this.playlist);
+        }
+
+        public override List<Item> returnItemList()
         {
             return this.playlist;
         }

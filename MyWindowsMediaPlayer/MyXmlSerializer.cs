@@ -14,13 +14,26 @@ namespace MyWindowsMediaPlayer
             _xs = new XmlSerializer(typeof(List<Item>));
         }
         
-        public void MySerialize(String nameOfXmlFile)
+        public void MySerialize(String nameOfXmlFile, List<Item> p)
         {
-            Playlist p = new Playlist();
             using (StreamWriter wr = new StreamWriter(nameOfXmlFile))
             {
-                _xs.Serialize(wr, p.returnListItem());
+                _xs.Serialize(wr, p);
             }
+        }
+
+        public Playlist MyDeserialize(String nameOfXmlFile)
+        {
+            Playlist p = new Playlist(nameOfXmlFile);
+            List<Item> items = new List<Item>();
+
+            using (StreamReader rd = new StreamReader(nameOfXmlFile))
+            {
+                items = _xs.Deserialize(rd) as List<Item>;
+                if (items.Count > 0)
+                    p.addPlaylist(items);
+            }
+            return p;
         }
     }
 }
