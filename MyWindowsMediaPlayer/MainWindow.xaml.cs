@@ -66,8 +66,7 @@ namespace MyWindowsMediaPlayer
             else if (this.typeManager == Type.VIDEO)
             {
                 dialog.FileName = "Videos";
-                dialog.DefaultExt = ".WMV";
-                dialog.Filter = "WMV/AVI file (.wmv/.avi)|*.avi";
+                dialog.Filter = "AVI|*.avi|WMV|*.wmv|MKV|*.mkv";
             }
             else if (this.typeManager == Type.PICTURE)
             {

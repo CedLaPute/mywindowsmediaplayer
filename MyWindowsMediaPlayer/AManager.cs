@@ -15,7 +15,7 @@ namespace MyWindowsMediaPlayer
         public abstract void Next();
         public abstract void Prev();
         public abstract void VolumeUp();
-        public abstract void VolumeDown(); 
+        public abstract void VolumeDown();
         public abstract ObservableCollection<Item> Datas(); 
     }
 }
