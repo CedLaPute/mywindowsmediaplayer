@@ -54,25 +54,24 @@ namespace MyWindowsMediaPlayer
 
         void    button_add_Click(object s, RoutedEventArgs e)
         {
-            //boite de dialogue a rajouter
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
             if (this.typeManager == Type.AUDIO)
             {
                 dialog.FileName = "Music";
                 dialog.DefaultExt = ".mp3";
-                dialog.Filter = "MP3 file (.mp)|*.mp3";
+                dialog.Filter = "MP3 file (.mp3)|*.mp3";
             }
             else if (this.typeManager == Type.VIDEO)
             {
                 dialog.FileName = "Videos";
                 dialog.DefaultExt = ".WMV";
-                dialog.Filter = "WMV file (.mp)|*.wmv";
+                dialog.Filter = "WMV/AVI file (.wmv/.avi)|*.avi";
             }
             else if (this.typeManager == Type.PICTURE)
             {
                 dialog.FileName = "Images";
                 dialog.DefaultExt = ".JPG";
-                dialog.Filter = "JPG file (.jp)|*.jpg";
+                dialog.Filter = "JPG file (.jpg)|*.jpg";
             }
 
             Nullable<bool> res = dialog.ShowDialog();

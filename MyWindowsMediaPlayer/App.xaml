@@ -6,15 +6,16 @@
     <Application.Resources>
 
         <Style TargetType="Button">
-            <Setter Property="Background" Value="Black" />
+            <!--<Setter Property="Background" Value="Black" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontFamily" Value="#Segoe UI" />
+            <Setter Property="FontFamily" Value="#Segoe UI" />-->
         </Style>
 
         <Style TargetType="ScrollViewer">
             <Setter Property="Background" Value="Gray" />
             <Setter Property="Foreground" Value="White" />
         </Style>
+
     </Application.Resources>
 </Application>
