@@ -45,6 +45,7 @@ namespace MyWindowsMediaPlayer
 
         void    button_Audio_Click(object s, RoutedEventArgs e)
         {
+            this.slider.Opacity = 1;
             this.manager.RemoveAt(0);
             this.manager.Add(new SongManager(this.player));
             this.typeManager = Type.AUDIO;
@@ -59,6 +60,7 @@ namespace MyWindowsMediaPlayer
 
         void    button_Video_Click(object s, RoutedEventArgs e)
         {
+            this.slider.Opacity = 1;
             this.manager.RemoveAt(0);
             this.manager.Add(new VideoManager(this.player));
             this.typeManager = Type.VIDEO;
@@ -73,6 +75,7 @@ namespace MyWindowsMediaPlayer
 
         void    button_Picture_Click(object s, RoutedEventArgs e)
         {
+            this.slider.Opacity = 0;
             this.manager.RemoveAt(0);
             this.manager.Add(new ImageManager(this.player));
             this.typeManager = Type.PICTURE;
