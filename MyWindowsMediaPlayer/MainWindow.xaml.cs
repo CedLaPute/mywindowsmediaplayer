@@ -22,9 +22,10 @@ namespace MyWindowsMediaPlayer
             InitializeComponent();
             this.DataContext = this;
             this.manager.Add(new SongManager(this.player));
-            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/Audio Playlist"));
-            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/Video Playlist"));
-            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/Image Playlist"));
+            this.MyListBox.ItemsSource = Datas;
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/AudioPlaylist"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/VideoPlaylist"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/ImagePlaylist"));
             this.typeManager = Type.AUDIO;
             foreach (var audio in this.defaultPlaylist[0].returnItemList())
             {
@@ -53,6 +54,7 @@ namespace MyWindowsMediaPlayer
             {
                 this.manager[0].Add(audio.Path);
             }
+            this.MyListBox.ItemsSource = Datas;
         }
 
         void    button_Video_Click(object s, RoutedEventArgs e)
@@ -66,6 +68,7 @@ namespace MyWindowsMediaPlayer
             {
                 this.manager[0].Add(video.Path);
             }
+            this.MyListBox.ItemsSource = Datas;
         }
 
         void    button_Picture_Click(object s, RoutedEventArgs e)
@@ -79,6 +82,7 @@ namespace MyWindowsMediaPlayer
             {
                 this.manager[0].Add(picture.Path);
             }
+            this.MyListBox.ItemsSource = Datas;
         }
 
         void    button_add_Click(object s, RoutedEventArgs e)
@@ -119,6 +123,7 @@ namespace MyWindowsMediaPlayer
                         this.defaultPlaylist[2].addItem(new Item(System.IO.Path.GetFileNameWithoutExtension(dialog.FileName), dialog.FileName));
                         break;
                 }
+                this.MyListBox.ItemsSource = Datas;
             }
         }
 

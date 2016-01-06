@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
 using System.Collections.Generic;
@@ -27,7 +29,27 @@ namespace MyWindowsMediaPlayer
             Playlist p = new Playlist(nameOfXmlFile);
             List<Item> items = new List<Item>();
 
-            if (File.Exists(nameOfXmlFile))
+            if (!File.Exists(nameOfXmlFile))
+                return p;
+
+            try
+            {
+                String[] SplitName = nameOfXmlFile.Split(new string[] { "../../" }, StringSplitOptions.None);
+                Console.WriteLine(SplitName[1]);
+                XDocument rd = XDocument.Parse(SplitName[1]);
+
+                IEnumerable<Item> IEitems = from i in rd.Descendants("Item")
+                                            select new Item()
+                                            {
+                                                Title = (String)i.Attribute("Title"),
+                                                Path = (String)i.Attribute("Path")
+                                            };
+                items = IEitems.ToList<Item>();
+                Console.WriteLine(items.Count.ToString());
+                p.addPlaylist(items);
+                return p;
+            }
+            catch
             {
                 using (StreamReader rd = new StreamReader(nameOfXmlFile))
                 {
@@ -35,8 +57,8 @@ namespace MyWindowsMediaPlayer
                     if (items.Count > 0)
                         p.addPlaylist(items);
                 }
-            }
-            return p;
+                return p;
+            };
         }
     }
 }
