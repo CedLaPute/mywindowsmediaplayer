@@ -34,31 +34,27 @@ namespace MyWindowsMediaPlayer
 
             try
             {
-                String[] SplitName = nameOfXmlFile.Split(new string[] { "../../" }, StringSplitOptions.None);
-                Console.WriteLine(SplitName[1]);
-                XDocument rd = XDocument.Parse(SplitName[1]);
-
-                IEnumerable<Item> IEitems = from i in rd.Descendants("Item")
-                                            select new Item()
-                                            {
-                                                Title = (String)i.Attribute("Title"),
-                                                Path = (String)i.Attribute("Path")
-                                            };
-                items = IEitems.ToList<Item>();
-                Console.WriteLine(items.Count.ToString());
-                p.addPlaylist(items);
-                return p;
+                XDocument rd = XDocument.Load(nameOfXmlFile);
+                IEnumerable<XElement> EItems = rd.Elements();
+                foreach (var i in EItems.Elements("Item"))
+                {
+                    items.Add(new Item((string)i.Element("Title"), (string)i.Element("Path")));
+                }
+                if (items.Count > 0)
+                    p.addPlaylist(items);
             }
             catch
             {
+                //Emergency reading
+                Console.WriteLine("error occured with LINQ, using StreamReader to open the playlists");
                 using (StreamReader rd = new StreamReader(nameOfXmlFile))
                 {
                     items = _xs.Deserialize(rd) as List<Item>;
                     if (items.Count > 0)
                         p.addPlaylist(items);
                 }
-                return p;
             };
+            return p;
         }
     }
 }

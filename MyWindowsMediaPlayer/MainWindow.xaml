@@ -79,7 +79,7 @@
         </Grid>
 
         <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="0,1.8,-0.4,21.4">
-            <ScrollViewer Margin="10,0,9.8,-0.2">
+            <ScrollViewer x:Name="MyScrollViewer" Margin="10,0,9.8,-0.2">
                 <ListBox x:Name="MyListBox" ItemsSource="{Binding Path=Datas}" Height="119" Width="1203">
                     <ListBox.ItemTemplate>
                         <DataTemplate>

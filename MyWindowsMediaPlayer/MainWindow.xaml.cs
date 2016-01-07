@@ -3,6 +3,8 @@ using System.Windows;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace MyWindowsMediaPlayer
 {
@@ -13,9 +15,12 @@ namespace MyWindowsMediaPlayer
     {
         enum Type { AUDIO, VIDEO, PICTURE };
         private Type typeManager;
+        private double playerHeight;
+        private double playerWidth;
         private List<AManager> manager = new List<AManager>();
         private List<APlaylist> defaultPlaylist = new List<APlaylist>();
         private MyXmlSerializer xs = new MyXmlSerializer();
+        private DispatcherTimer timer;
 
         public MainWindow()
         {
@@ -29,6 +34,7 @@ namespace MyWindowsMediaPlayer
             this.typeManager = Type.AUDIO;
             foreach (var audio in this.defaultPlaylist[0].returnItemList())
             {
+                Console.WriteLine(audio.Path);
                 this.manager[0].Add(audio.Path);
             }
             this.Audio.Click += new RoutedEventHandler(button_Audio_Click);
@@ -41,9 +47,58 @@ namespace MyWindowsMediaPlayer
             this.button_stop.Click += new RoutedEventHandler(button_stop_Click);
             this.button_volume_up.Click += new RoutedEventHandler(button_volume_up_Click);
             this.button_volume_down.Click += new RoutedEventHandler(button_volume_down_Click);
+            this.timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3) };
+            this.timer.Tick += timer_Tick;
+            this.timer.Start();
+            this.MouseMove += Window_MouseMove;
+            this.playerWidth = this.player.Width;
+            this.playerHeight = this.player.Height;
         }
 
-        void    button_Audio_Click(object s, RoutedEventArgs e)
+        void timer_Tick(object sender, EventArgs e)
+        {
+            this.Audio.Visibility = Visibility.Collapsed;
+            this.Picture.Visibility = Visibility.Collapsed;
+            this.Video.Visibility = Visibility.Collapsed;
+            this.button_add.Visibility = Visibility.Collapsed;
+            this.button_back.Visibility = Visibility.Collapsed;
+            this.button_forward.Visibility = Visibility.Collapsed;
+            this.button_play.Visibility = Visibility.Collapsed;
+            this.button_stop.Visibility = Visibility.Collapsed;
+            this.button_volume_up.Visibility = Visibility.Collapsed;
+            this.button_volume_down.Visibility = Visibility.Collapsed;
+            this.button_pause.Visibility = Visibility.Collapsed;
+            this.MyListBox.Visibility = Visibility.Collapsed;
+            this.MyScrollViewer.Visibility = Visibility.Collapsed;
+            this.slider.Visibility = Visibility.Collapsed;
+/*            this.player.Width = this.Width - 10;
+            this.player.Height = this.Height - 10;*/
+            this.timer.Stop();
+        }
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Audio.Visibility = Visibility.Visible;
+            this.Video.Visibility = Visibility.Visible;
+            this.Picture.Visibility = Visibility.Visible;
+            this.button_add.Visibility = Visibility.Visible;
+            this.button_back.Visibility = Visibility.Visible;
+            this.button_forward.Visibility = Visibility.Visible;
+            this.button_play.Visibility = Visibility.Visible;
+            this.button_stop.Visibility = Visibility.Visible;
+            this.button_volume_up.Visibility = Visibility.Visible;
+            this.button_volume_down.Visibility = Visibility.Visible;
+            this.button_pause.Visibility = Visibility.Visible;
+            this.MyListBox.Visibility = Visibility.Visible;
+            this.MyScrollViewer.Visibility = Visibility.Visible;
+            this.slider.Visibility = Visibility.Visible;
+            /*            this.player.Width = this.playerWidth;
+                        this.player.Height = this.playerHeight;*/
+            this.timer.Stop();
+            this.timer.Start();
+        }
+
+        void button_Audio_Click(object s, RoutedEventArgs e)
         {
             this.slider.Opacity = 1;
             this.manager.RemoveAt(0);
