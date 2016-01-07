@@ -44,6 +44,7 @@ namespace MyWindowsMediaPlayer
             this.button_back.Click += new RoutedEventHandler(button_back_Click);
             this.button_forward.Click += new RoutedEventHandler(button_forward_Click);
             this.button_play.Click += new RoutedEventHandler(button_play_Click);
+            this.button_pause.Click += new RoutedEventHandler(button_pause_Click);
             this.button_stop.Click += new RoutedEventHandler(button_stop_Click);
             this.button_volume_up.Click += new RoutedEventHandler(button_volume_up_Click);
             this.button_volume_down.Click += new RoutedEventHandler(button_volume_down_Click);
@@ -198,6 +199,11 @@ namespace MyWindowsMediaPlayer
         void    button_play_Click(object s, RoutedEventArgs e)
         {
             this.manager[0].Play();
+        }
+
+        void    button_pause_Click(object s, RoutedEventArgs e)
+        {
+            this.manager[0].Pause();
         }
 
         void    button_stop_Click(object s, RoutedEventArgs e)
