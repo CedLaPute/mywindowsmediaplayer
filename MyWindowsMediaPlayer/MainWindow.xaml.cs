@@ -18,7 +18,6 @@ namespace MyWindowsMediaPlayer
         private double playerHeight;
         private double playerWidth;
         private bool loaded = false;
-        private bool draged = false;
         private List<AManager> manager = new List<AManager>();
         private List<APlaylist> defaultPlaylist = new List<APlaylist>();
         private MyXmlSerializer xs = new MyXmlSerializer();
@@ -38,7 +37,6 @@ namespace MyWindowsMediaPlayer
             this.typeManager = Type.AUDIO;
             foreach (var audio in this.defaultPlaylist[0].returnItemList())
             {
-                Console.WriteLine(audio.Path);
                 this.manager[0].Add(audio.Path);
             }
             this.Audio.Click += new RoutedEventHandler(button_Audio_Click);
@@ -55,7 +53,7 @@ namespace MyWindowsMediaPlayer
             this.timerMouse = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3) };
             this.timerMouse.Tick += timerMouse_Tick;
             this.timerMouse.Start();
-            this.timerLoading = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+            this.timerLoading = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds (100) };
             this.timerLoading.Tick += timerLoading_Tick;
             this.timerLoading.Start();
             this.MouseMove += Window_MouseMove;

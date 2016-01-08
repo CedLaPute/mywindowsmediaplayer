@@ -29,7 +29,6 @@ namespace MyWindowsMediaPlayer
             if (System.IO.File.Exists(path))
             {
                 this.datas.Add(new Item(System.IO.Path.GetFileNameWithoutExtension(path), path));
-                Console.WriteLine(datas.Count.ToString());
             }
         }
 
