@@ -32,3 +32,4 @@ C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindow
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.Direct3D.xml
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.xml
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\App.baml
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer_Content.g.cs

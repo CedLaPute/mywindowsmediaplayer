@@ -16,6 +16,9 @@ namespace MyWindowsMediaPlayer
         public abstract void Prev();
         public abstract void VolumeUp();
         public abstract void VolumeDown();
+        public abstract double Loading();
+        public abstract double Position();
+        public abstract void SetPosition(int newValue);
         public abstract ObservableCollection<Item> Datas(); 
     }
 }

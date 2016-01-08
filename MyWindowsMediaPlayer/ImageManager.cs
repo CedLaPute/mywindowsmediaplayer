@@ -102,9 +102,26 @@ namespace MyWindowsMediaPlayer
             }
         }
 
+        public override double Loading()
+        {
+            return (this.player.DownloadProgress * 100);
+        }
+
+        public override double Position()
+        {
+            return (0);
+        }
 
         public override void VolumeUp() {}
 
         public override void VolumeDown() {}
+
+
+        public override void SetPosition(int newValue)
+        {
+            this.player.Pause();
+            this.player.Position = new TimeSpan(0, 0, newValue);
+            this.player.Play();
+        }
     }
 }

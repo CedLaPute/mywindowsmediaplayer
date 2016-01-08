@@ -103,9 +103,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Resources\AudioPlaylist" />
-    <None Include="Resources\ImagePlaylist" />
-    <None Include="Resources\VideoPlaylist" />
+    <Content Include="Resources\AudioPlaylist.xml" />
+    <Content Include="Resources\ImagePlaylist.xml" />
+    <Content Include="Resources\VideoPlaylist.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

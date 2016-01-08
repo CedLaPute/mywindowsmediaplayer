@@ -113,5 +113,25 @@ namespace MyWindowsMediaPlayer
             if (this.player.Volume > 0)
                 this.player.Volume = this.player.Volume - 0.1;
         }
+
+        public override double Loading()
+        {
+            return (this.player.DownloadProgress * 100);
+        }
+
+        public override double Position()
+        {
+            double ratio;
+
+            ratio = 100 / this.player.NaturalDuration.TimeSpan.TotalSeconds;
+            return (this.player.Position.Seconds * ratio);
+        }
+
+        public override void SetPosition(int newValue)
+        {
+            this.player.Pause();
+            this.player.Position = new TimeSpan(0, 0, newValue);
+            this.player.Play();
+        }
     }
 }

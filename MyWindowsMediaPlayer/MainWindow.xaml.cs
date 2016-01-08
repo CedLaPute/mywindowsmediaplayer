@@ -17,20 +17,24 @@ namespace MyWindowsMediaPlayer
         private Type typeManager;
         private double playerHeight;
         private double playerWidth;
+        private bool loaded = false;
+        private bool draged = false;
         private List<AManager> manager = new List<AManager>();
         private List<APlaylist> defaultPlaylist = new List<APlaylist>();
         private MyXmlSerializer xs = new MyXmlSerializer();
-        private DispatcherTimer timer;
+        private DispatcherTimer timerMouse;
+        private DispatcherTimer timerLoading;
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
+            this.player.MediaOpened += media_opened;
             this.manager.Add(new SongManager(this.player));
             this.MyListBox.ItemsSource = Datas;
-            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/AudioPlaylist"));
-            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/VideoPlaylist"));
-            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/ImagePlaylist"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/AudioPlaylist.xml"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/VideoPlaylist.xml"));
+            this.defaultPlaylist.Add(xs.MyDeserialize("../../Resources/ImagePlaylist.xml"));
             this.typeManager = Type.AUDIO;
             foreach (var audio in this.defaultPlaylist[0].returnItemList())
             {
@@ -48,15 +52,39 @@ namespace MyWindowsMediaPlayer
             this.button_stop.Click += new RoutedEventHandler(button_stop_Click);
             this.button_volume_up.Click += new RoutedEventHandler(button_volume_up_Click);
             this.button_volume_down.Click += new RoutedEventHandler(button_volume_down_Click);
-            this.timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3) };
-            this.timer.Tick += timer_Tick;
-            this.timer.Start();
+            this.timerMouse = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3) };
+            this.timerMouse.Tick += timerMouse_Tick;
+            this.timerMouse.Start();
+            this.timerLoading = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+            this.timerLoading.Tick += timerLoading_Tick;
+            this.timerLoading.Start();
             this.MouseMove += Window_MouseMove;
             this.playerWidth = this.player.Width;
             this.playerHeight = this.player.Height;
+            this.slider.DragOver += slider_drag_over;
         }
 
-        void timer_Tick(object sender, EventArgs e)
+        void media_opened(object s, RoutedEventArgs e)
+        {
+            this.loaded = true;
+        }
+
+        void timerLoading_Tick(object sender, EventArgs e)
+        {
+            if (this.ProgressBar.Value == 100)
+                this.ProgressBar.Visibility = Visibility.Collapsed;
+            this.ProgressBar.Value = this.manager[0].Loading();
+            this.ProgressBar.UpdateLayout();
+            if (this.loaded)
+            {
+                this.slider.Value = this.manager[0].Position();
+                this.slider.UpdateLayout();
+            }
+            this.timerLoading.Stop();
+            this.timerLoading.Start();
+        }
+
+        void timerMouse_Tick(object sender, EventArgs e)
         {
             this.Audio.Visibility = Visibility.Collapsed;
             this.Picture.Visibility = Visibility.Collapsed;
@@ -74,7 +102,12 @@ namespace MyWindowsMediaPlayer
             this.slider.Visibility = Visibility.Collapsed;
 /*            this.player.Width = this.Width - 10;
             this.player.Height = this.Height - 10;*/
-            this.timer.Stop();
+            this.timerMouse.Stop();
+        }
+
+        void slider_drag_over(object s, RoutedEventArgs e)
+        {
+            this.manager[0].SetPosition((int)this.slider.Value / 5);
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
@@ -95,12 +128,16 @@ namespace MyWindowsMediaPlayer
             this.slider.Visibility = Visibility.Visible;
             /*            this.player.Width = this.playerWidth;
                         this.player.Height = this.playerHeight;*/
-            this.timer.Stop();
-            this.timer.Start();
+            this.timerMouse.Stop();
+            this.timerMouse.Start();
         }
 
         void button_Audio_Click(object s, RoutedEventArgs e)
         {
+            this.loaded = false;
+            this.ProgressBar.Visibility = Visibility.Visible;
+            this.ProgressBar.Value = 0;
+            this.ProgressBar.UpdateLayout();
             this.slider.Opacity = 1;
             this.manager.RemoveAt(0);
             this.manager.Add(new SongManager(this.player));
@@ -116,6 +153,10 @@ namespace MyWindowsMediaPlayer
 
         void    button_Video_Click(object s, RoutedEventArgs e)
         {
+            this.loaded = false;
+            this.ProgressBar.Visibility = Visibility.Visible;
+            this.ProgressBar.Value = 0;
+            this.ProgressBar.UpdateLayout();
             this.slider.Opacity = 1;
             this.manager.RemoveAt(0);
             this.manager.Add(new VideoManager(this.player));
@@ -131,6 +172,10 @@ namespace MyWindowsMediaPlayer
 
         void    button_Picture_Click(object s, RoutedEventArgs e)
         {
+            this.loaded = false;
+            this.ProgressBar.Visibility = Visibility.Visible;
+            this.ProgressBar.Value = 0;
+            this.ProgressBar.UpdateLayout();
             this.slider.Opacity = 0;
             this.manager.RemoveAt(0);
             this.manager.Add(new ImageManager(this.player));
@@ -188,11 +233,19 @@ namespace MyWindowsMediaPlayer
 
         void    button_back_Click(object s, RoutedEventArgs e)
         {
+            this.loaded = false;
+            this.ProgressBar.Visibility = Visibility.Visible;
+            this.ProgressBar.Value = 0;
+            this.ProgressBar.UpdateLayout();
             this.manager[0].Prev();
         }
 
         void    button_forward_Click(object s, RoutedEventArgs e)
         {
+            this.loaded = false;
+            this.ProgressBar.Visibility = Visibility.Visible;
+            this.ProgressBar.Value = 0;
+            this.ProgressBar.UpdateLayout();
             this.manager[0].Next();
         }
 
