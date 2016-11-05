@@ -33,3 +33,7 @@ C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindow
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\Microsoft.DirectX.xml
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\App.baml
 C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer_Content.g.cs
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\MahApps.Metro.dll
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\MahApps.Metro.pdb
+C:\Users\héhéhéhéhéhéhéhé\Documents\GitHub\mywindowsmediaplayer\MyWindowsMediaPlayer\bin\Debug\MahApps.Metro.xml
